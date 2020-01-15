@@ -1,0 +1,33 @@
+//Construimos el script de cómo se compilará la aplicación
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+    	//Ubicación de los paquetes y clases necesarias
+        classpath 'net.wasdev.wlp.gradle.plugins:liberty-gradle-plugin:2.6.5'
+    }
+}
+//Ejecutamos los plugins
+apply plugin: 'war'
+apply plugin: 'liberty'
+group = 'io.openliberty.guides'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    ///Openliberty
+    compile group:'io.openliberty', name:'openliberty-runtime', version:'19.0.0.12'
+    //Base de datos PostgreSql
+	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.8'
+	//Microprofile 
+    compile group: 'io.openliberty.features', name: 'microProfile-3.2', version: '19.0.0.12'
+    //Pool base de datos
+    compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.0'
+    //Jax-Rs
+	compile group: 'io.opentracing.contrib', name: 'opentracing-jaxrs2', version: '1.0.0'
+    
+    
+}
